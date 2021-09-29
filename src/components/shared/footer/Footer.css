@@ -1,0 +1,26 @@
+.main {
+    /* background-color: #fff; */
+    background-color: #008acd;
+    justify-content: space-between;
+    /* position: fixed; */
+    /* top: 0; */
+    width: 100%;
+    /* overflow: hidden; */
+    display :flex;
+    flex-direction: row;
+    align-items: center;
+    border-top: solid #fff ;
+    position:fixed;
+    height: 100px;
+    margin-bottom: 0%;
+    bottom: 0px;
+
+}
+
+.footer {
+    margin: 2rem 1rem 2rem 3rem;
+    display: inline;
+    color:  #fff;
+    font-size: 1rem;
+}
+

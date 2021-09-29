@@ -1,0 +1,70 @@
+.sideNav {    
+   
+    height: 70vh;
+    width: 17.5rem;
+    list-style-type: none;
+    padding: 0;
+    margin-bottom: 0 !important;
+    background-color: #008acd;
+
+    
+}
+
+.sideNavItem {
+    width: 100%;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    color: #fff;
+}
+
+.sideNavBtn {
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    border: 0;
+    outline: none;
+    text-align: left;
+    padding: 9px;
+    padding-left: 1.5rem;
+
+}
+
+.sideNavItemDisabled {
+    width: 100%;
+    font-size: 1.2rem;
+    padding: 9px;
+    padding-left: 1.5rem;
+    color: #a5b3c4;
+}
+
+.sideNavItemActive {
+    /* background-color: #3e6db5; */
+    background-color: #f7f7f7;
+    color: #008acd;
+    border-right: 4px solid #f7f7f7;
+    /* border-right: 4px solid #659FF9; */
+
+}
+
+
+.sideNavBtn:hover{
+    cursor:pointer;
+
+}
+
+
+
+
+.desktopIcon {
+    padding: .3rem .7rem;
+    color: #777;
+    font-size: 1.5rem;
+}
+
+.desktopIcon:hover {
+    background-color: #ddd;
+}
+
+.desktopExitIcon:hover {
+    background-color: #ea4335;
+}
