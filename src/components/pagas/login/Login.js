@@ -14,33 +14,34 @@ const Login = () => {
     const handleChangepassword=(e)=>{
         setPassword(e.target.value);
         }
-      const handleChangeEmail=(e)=>{
+
+    const handleChangeEmail=(e)=>{
             setEmail(e.target.value);
             }
 
-  const onFinish = () => {
+    const handleLogin = () => {
+
       if(email===""||password===""){
-       
           return;
       }
       else{
         setEmail("");
         setPassword("");
-        setLogin(true);
-        
+        setLogin(true); 
       }
    
-  };
+    };
+
 
   if(login){
-    return  <Redirect to='/A' />
-  }
+    return  <Redirect to='/Activate' />
+    }
 
   return (
       <div className="login">
-          <h1 className="tit">Log in to activate FNL manager</h1>
-          <div className="login-form"  >
+          <h1 className="login-header">Log in to activate FNL manager</h1>
 
+          <div className="login-form"  >
 
                     <div style={{padding:" 20px 0 0 0"}} >
                     <p style={{margin:" 0px"}}> Email</p>
@@ -62,7 +63,7 @@ const Login = () => {
                    
                    
                     <div  style={{padding:" 25px 0 0 0"}}>
-                    <Button type="primary" onClick={onFinish} className="login-form-button" disabled={email===""||password===""} >
+                    <Button type="primary" onClick={handleLogin} className="login-form-button" disabled={email===""||password===""} >
                         Log in
                     </Button>
                     </div>

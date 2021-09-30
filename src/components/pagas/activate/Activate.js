@@ -5,14 +5,16 @@ import './Activate.css';
 
 
 const Activate = () => {
-    const [active,setActive]=useState(1);
-    const[i,setI]=useState(false);
+    const [activeLicense,setActiveLicense]=useState(1);
+    const [activated,setActivate]=useState(false);
 
-    const handled=()=>{
-        setI(true);
+    const handleActivation=()=>{
+        setActivate(true);
     }
-    if(i){
-        return <Redirect to='/M' />
+
+
+    if(activated){
+        return <Redirect to='/Main' />
     }
 
 
@@ -24,40 +26,36 @@ const Activate = () => {
                     <div className="Licenses-list">
                     <ul style={{padding:"0px"}}>
             
-                            <li className={active==1? "licenice-ItemActive licenice-Item " : " licenice-Item  " }
+                            <li className={activeLicense==1? "licenice-ItemActive licenice-Item" : "licenice-Item" }
                            >
-                                <button  className="licenice-Btn" onClick={() => setActive(1)} >
+                                <button  className="licenice-Btn" onClick={() => setActiveLicense(1)} >
                                 licenses number : 2356 /
                                 modules : safy, gfshg, dLn
                                 </button>
                             </li>
-                            <li className={active==2? "licenice-ItemActive licenice-Item " : " licenice-Item  " }
+                            <li className={activeLicense==2? "licenice-ItemActive licenice-Item" : "licenice-Item" }
                            >
-                                <button  className="licenice-Btn" onClick={() => setActive(2)} >
+                                <button  className="licenice-Btn" onClick={() => setActiveLicense(2)} >
                                 licenses number : 2356 /
                                 modules : safy, gfshg, dLn
                                 </button>
                             </li>
                             <li
-                            className={active==3? "licenice-ItemActive licenice-Item  " : " licenice-Item  "}>
+                            className={activeLicense==3? "licenice-ItemActive licenice-Item" : " licenice-Item"}>
                             <button  
                             className="licenice-Btn"
-                            onClick={() => setActive(3)}>
+                            onClick={() => setActiveLicense(3)}>
                            licenses number : 2356 /
                            modules : safy, gfshg, dLn
                             </button>
                             </li>
 
-                        
-           
                          </ul>
                     </div>
                 
-                <Button type="primary" className="Activate-btn" onClick={handled} >
+                    <Button type="primary" className="Activate-btn" onClick={handleActivation} >
                         ACTIVATE
-                    </Button>
-
-                   
+                    </Button>     
                 
             </div>
             

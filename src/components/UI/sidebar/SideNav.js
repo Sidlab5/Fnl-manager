@@ -5,22 +5,22 @@ import './SideNav.css';
 
 const SideNav = () => {
 
- const [active,setActive]=useState(2);
+ const [activeTap,setActiveTap]=useState(2);
 
 
     return (
         <ul className="sideNav">
             
             <li 
-              className={active==1? "sideNavItemActive sideNavItem  " : " sideNavItem " }>
-                <button onClick={() => setActive(1)} className="sideNavBtn"  >
+              className={activeTap==1? "sideNavItemActive sideNavItem  " : " sideNavItem " }>
+                <button onClick={() => setActiveTap(1)} className="sideNavBtn"  >
                   STATUS
                 </button>
             </li>
            
             <li
-              className= {active==2? "sideNavItemActive sideNavItem " : " sideNavItem " }>
-              <button  onClick={() => setActive(2)}
+              className= {activeTap==2? "sideNavItemActive sideNavItem " : " sideNavItem " }>
+              <button  onClick={() => setActiveTap(2)}
               className="sideNavBtn"
               >
                FNL

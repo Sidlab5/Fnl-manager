@@ -9,20 +9,25 @@ import './Main.css';
 
 
 const Main = () => {
-    const[i,setI]=useState("");
+    const[deactivate,setDeactivate]=useState(false);
+    const[updateLicences,setUpdateLicences]=useState(false);
 
-    const handled=()=>{
-        setI("A");
+    const handleDeactivate=()=>{
+        setDeactivate(true);
     }
-    const handleu=()=>{
-        setI("L");
+    const handleUpdateLicenes=()=>{
+        setUpdateLicences(true);
     }
-    if(i==="A"){
-        return <Redirect to='/A' />
+
+
+    if(deactivate){
+        return <Redirect to='/Activate' />
     }
-    if(i==="L"){
+
+    if(updateLicences){
         return <Redirect to='/' />
     }
+   
     return (
         <div className="container">
             <SideNav/>
@@ -34,11 +39,11 @@ const Main = () => {
                 </div>
 
                 <div className="btns">
-                <Button type="primary" className="btn" onClick={handled} >
+                <Button type="primary" className="btn" onClick={handleDeactivate} >
                         DEACTIVATE
                     </Button>
 
-                    <Button type="primary"  className="btn"  onClick={handleu}>
+                    <Button type="primary"  className="btn" onClick={handleUpdateLicenes} >
                        UPDATE LICENSE
                     </Button>
                 </div>

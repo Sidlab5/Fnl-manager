@@ -47,16 +47,3 @@
 
 
 
-.desktopIcon {
-    padding: .3rem .7rem;
-    color: #777;
-    font-size: 1.5rem;
-}
-
-.desktopIcon:hover {
-    background-color: #ddd;
-}
-
-.desktopExitIcon:hover {
-    background-color: #ea4335;
-}

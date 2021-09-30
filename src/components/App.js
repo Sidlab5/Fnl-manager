@@ -14,8 +14,8 @@ const App = () => {
 			<Header/>
 
 			<Route path='/' exact  component={Login}/>
-			<Route path='/A'   component={Activate}/>
-			<Route path='/M'   component={Main}/>
+			<Route path='/Activate'   component={Activate}/>
+			<Route path='/Main'   component={Main}/>
 
 			<Footer/>
 
