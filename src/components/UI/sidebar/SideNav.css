@@ -29,20 +29,12 @@
 
 }
 
-.sideNavItemDisabled {
-    width: 100%;
-    font-size: 1.2rem;
-    padding: 9px;
-    padding-left: 1.5rem;
-    color: #a5b3c4;
-}
+
 
 .sideNavItemActive {
-    /* background-color: #3e6db5; */
     background-color: #f7f7f7;
     color: #008acd;
     border-right: 4px solid #f7f7f7;
-    /* border-right: 4px solid #659FF9; */
 
 }
 

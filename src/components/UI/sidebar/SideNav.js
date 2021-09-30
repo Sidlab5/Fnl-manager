@@ -1,11 +1,9 @@
-import React, {useState, useEffect} from 'react';
-
+import React, {useState} from 'react';
 import './SideNav.css';
 
 
 
-
-const SideNav = (props) => {
+const SideNav = () => {
 
  const [active,setActive]=useState(2);
 

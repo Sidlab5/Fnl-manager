@@ -17,6 +17,7 @@
   .login-form-button:disabled {
    
     background-color: #008acd !important;
+    color:#fff !important;
   }
 
   .login{

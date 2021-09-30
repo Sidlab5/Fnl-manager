@@ -1,7 +1,5 @@
-import { Button } from 'antd';
 import React from 'react';
 import  './Footer.css';
-import logo from "../Header/Icon-02.png" ;
 
 
 const Footer = () => {

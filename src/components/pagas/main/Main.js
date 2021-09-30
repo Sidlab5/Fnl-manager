@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import SideNav from '../../UI/sidebar/SideNav';
 import {  Button } from 'antd';
 import {  Redirect } from "react-router-dom";
@@ -8,7 +8,7 @@ import {  Redirect } from "react-router-dom";
 import './Main.css';
 
 
-const Main = (props) => {
+const Main = () => {
     const[i,setI]=useState("");
 
     const handled=()=>{

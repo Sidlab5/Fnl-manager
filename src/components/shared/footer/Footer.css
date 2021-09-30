@@ -1,11 +1,7 @@
 .main {
-    /* background-color: #fff; */
     background-color: #008acd;
     justify-content: space-between;
-    /* position: fixed; */
-    /* top: 0; */
     width: 100%;
-    /* overflow: hidden; */
     display :flex;
     flex-direction: row;
     align-items: center;

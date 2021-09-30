@@ -1,17 +1,12 @@
 .mainContainer {
-    /* background-color: #fff; */
     background-color: #fff;
     justify-content: space-between;
-    /* position: fixed; */
-    /* top: 0; */
     width: 100%;
-    /* overflow: hidden; */
     z-index: 3;
     padding-top: 3px;
     padding-left: 5px;
     padding-bottom: 10px;
     border-bottom: solid #008acd ;
-
     display :flex;
     flex-direction: row;
     align-items: center;
@@ -28,31 +23,3 @@
     height: 5rem;
 }
 
-.headerIcon {
-    font-size: 1.5rem;
-    /* color: #0060a7 !important; */
-    color: #fff !important;
-    cursor: pointer;
-}
-
-.headerIcon:not(:last-child) {
-    margin-right: 1rem; 
-}
-
-.headerIconDisabled {
-    opacity: 0.3;
-}
-
-.desktopIcon {
-    padding: .3rem .7rem;
-    color: #fff !important;
-    font-size: 1.5rem;
-}
-
-.desktopIcon:hover {
-    background-color: #ddd;
-}
-
-.desktopExitIcon:hover {
-    background-color: #ea4335;
-}

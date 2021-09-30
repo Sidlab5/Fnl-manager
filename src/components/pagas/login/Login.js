@@ -24,7 +24,6 @@ const Login = () => {
           return;
       }
       else{
-        console.log('Received values of form: ', email,password);
         setEmail("");
         setPassword("");
         setLogin(true);

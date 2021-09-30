@@ -4,10 +4,8 @@ import {  Redirect } from "react-router-dom";
 import './Activate.css';
 
 
-const Activate = (props) => {
+const Activate = () => {
     const [active,setActive]=useState(1);
-    const[licenseslist,setLicenseslist]=useState([]);
-
     const[i,setI]=useState(false);
 
     const handled=()=>{
@@ -41,7 +39,7 @@ const Activate = (props) => {
                                 </button>
                             </li>
                             <li
-                            className={active==3? "licenice-ItemActive licenice-Item   " : " licenice-Item  "}>
+                            className={active==3? "licenice-ItemActive licenice-Item  " : " licenice-Item  "}>
                             <button  
                             className="licenice-Btn"
                             onClick={() => setActive(3)}>

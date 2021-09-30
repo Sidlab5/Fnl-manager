@@ -1,6 +1,5 @@
 import React from 'react'
 import Header from "./shared/header/Header"
-import SideNav from './UI/sidebar/SideNav';
 import Footer from "./shared/Footer/Footer";
 import Login from './pagas/login/Login';
 import Main from './pagas/main/Main';
