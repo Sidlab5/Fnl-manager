@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import SideNav from '../../UI/sidebar/SideNav';
-import {  Button } from 'antd';
 import {  Redirect } from "react-router-dom";
+import Btn from '../../UI/button/btn';
 
 
 
@@ -39,13 +39,11 @@ const Main = () => {
                 </div>
 
                 <div className="btns">
-                <Button type="primary" className="btn" onClick={handleDeactivate} >
-                        DEACTIVATE
-                    </Button>
-
-                    <Button type="primary"  className="btn" onClick={handleUpdateLicenes} >
-                       UPDATE LICENSE
-                    </Button>
+                    <Btn type="primary"  handleClick={handleDeactivate} text="DEACTIVATE" />
+        
+                    <Btn type="primary"  handleClick={handleUpdateLicenes} text="UPDATE LICENSE" />
+                       
+                    
                 </div>
             </div>
             

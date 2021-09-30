@@ -3,19 +3,18 @@
     justify-self: end;
     align-self: start;
   }
+
   .login-form-forgot {
     float: right;
     color:#008acd
   }
-  .ant-col-rtl .login-form-forgot {
-    float: left;
-  }
+
   .login-form-button {
     width: 100%;
     background-color: #008acd !important;
   }
+
   .login-form-button:disabled {
-   
     background-color: #008acd !important;
     color:#fff !important;
   }

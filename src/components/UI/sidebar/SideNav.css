@@ -1,5 +1,4 @@
 .sideNav {    
-   
     height: 70vh;
     width: 17.5rem;
     list-style-type: none;
@@ -7,7 +6,6 @@
     margin-bottom: 0 !important;
     background-color: #008acd;
 
-    
 }
 
 .sideNavItem {

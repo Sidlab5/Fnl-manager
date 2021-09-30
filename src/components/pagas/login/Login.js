@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-import { Input, Button } from 'antd';
+import Inpt from '../../UI/input/Inputs';
 import {  Redirect } from "react-router-dom";
-
-
+import Btn from '../../UI/button/btn';
 import './Login.css'
 
 const Login = () => {
@@ -41,31 +40,33 @@ const Login = () => {
       <div className="login">
           <h1 className="login-header">Log in to activate FNL manager</h1>
 
-          <div className="login-form"  >
+          <div className="login-form">
 
                     <div className="input-container"  >
                     <p className="mr0"> Email</p>
-                    <Input onChange={handleChangeEmail} value={email} placeholder="Enter your Email address" />
+                    <Inpt handleChange={handleChangeEmail} 
+                     value={email}
+                     placeholder="Enter your Email address"
+                      size="large" />
                     </div>
                      
                     
                    <div className="input-container">
                     <p className="mr0"> Password</p>
-                    <Input
-                        onChange={handleChangepassword}
-                        value={password}
-                        type="password"
-                        placeholder="Enter your Password"
-                        
-                    />
+                    <Inpt handleChange={handleChangepassword} 
+                      value={password} 
+                      placeholder="Enter your Password"
+                      size="large" 
+                      type="password"/>
+                   
                    </div>
                        
                    
                    
                     <div  className="input-container">
-                    <Button type="primary" onClick={handleLogin} className="login-form-button" disabled={email===""||password===""} >
-                        Log in
-                    </Button>
+                    <Btn text="Log in" type="primary" handleClick={handleLogin}
+                     disabled={email===""||password===""} isFullWidth={true}/>
+                        
                     </div>
 
                     <a className="login-form-forgot" href="">
