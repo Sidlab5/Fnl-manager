@@ -24,7 +24,7 @@ const Activate = () => {
                  <h1 className="activate-header">Select one of the following Licenses to activate</h1>
 
                     <div className="Licenses-list">
-                    <ul style={{padding:"0px"}}>
+                    <ul className="pd0">
             
                             <li className={activeLicense==1? "licenice-ItemActive licenice-Item" : "licenice-Item" }
                            >

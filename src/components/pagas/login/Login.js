@@ -43,14 +43,14 @@ const Login = () => {
 
           <div className="login-form"  >
 
-                    <div style={{padding:" 20px 0 0 0"}} >
-                    <p style={{margin:" 0px"}}> Email</p>
+                    <div className="input-container"  >
+                    <p className="mr0"> Email</p>
                     <Input onChange={handleChangeEmail} value={email} placeholder="Enter your Email address" />
                     </div>
                      
                     
-                   <div style={{padding:" 20px 0 0 0"}}>
-                    <p style={{margin:" 0px"}}> Password</p>
+                   <div className="input-container">
+                    <p className="mr0"> Password</p>
                     <Input
                         onChange={handleChangepassword}
                         value={password}
@@ -62,7 +62,7 @@ const Login = () => {
                        
                    
                    
-                    <div  style={{padding:" 25px 0 0 0"}}>
+                    <div  className="input-container">
                     <Button type="primary" onClick={handleLogin} className="login-form-button" disabled={email===""||password===""} >
                         Log in
                     </Button>

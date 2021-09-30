@@ -12,22 +12,20 @@ const SideNav = () => {
         <ul className="sideNav">
             
             <li 
-              className={activeTap==1? "sideNavItemActive sideNavItem  " : " sideNavItem " }>
+              className={activeTap==1? "sideNavItemActive sideNavItem" : " sideNavItem" }>
                 <button onClick={() => setActiveTap(1)} className="sideNavBtn"  >
                   STATUS
                 </button>
             </li>
            
             <li
-              className= {activeTap==2? "sideNavItemActive sideNavItem " : " sideNavItem " }>
+              className= {activeTap==2? "sideNavItemActive sideNavItem" : " sideNavItem" }>
               <button  onClick={() => setActiveTap(2)}
               className="sideNavBtn"
               >
                FNL
               </button>
-            </li>
-
-           
+            </li> 
            
         </ul>
     )
