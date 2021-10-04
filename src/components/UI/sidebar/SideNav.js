@@ -14,7 +14,7 @@ const SideNav = () => {
             <li 
               className={activeTap==1? "sideNavItemActive sideNavItem" : " sideNavItem" }>
                 <button onClick={() => setActiveTap(1)} className="sideNavBtn"  >
-                  STATUS
+                  Status
                 </button>
             </li>
            

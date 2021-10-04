@@ -15,10 +15,13 @@ if (
 
 function createMainWindow() {
 	mainWindow = new BrowserWindow({
-		width: 1100,
-		height: 800,
+		width: 750,
+		height: 750,
+		maxHeight: 750,
+		maxWidth: 750,
+		minWidth:650,
 		show: false,
-		icon: `${__dirname}/assets/icon.png`,
+		icon: `${__dirname}/assets/Icon-02.png`,
 		webPreferences: {
 			nodeIntegration: true,
 		},
@@ -41,11 +44,13 @@ function createMainWindow() {
 		})
 	}
 
-	mainWindow.loadURL(indexPath)
+	mainWindow.loadURL(indexPath);
+	mainWindow.removeMenu();
 
 	// Don't show until we are ready and loaded
 	mainWindow.once('ready-to-show', () => {
 		mainWindow.show()
+		
 
 		// Open devtools if dev
 		if (isDev) {

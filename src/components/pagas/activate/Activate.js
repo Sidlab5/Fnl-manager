@@ -1,15 +1,28 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {  Redirect } from "react-router-dom";
 import './Activate.css';
 import Btn from '../../UI/button/btn';
+import { connect } from 'react-redux';
+import  { HandelActivateLicense} from "../../../actions/LicenseManager"
 
 
-const Activate = () => {
+
+const Activate = (props) => {
     const [activeLicense,setActiveLicense]=useState(1);
     const [activated,setActivate]=useState(false);
 
+    useEffect(()=>{
+            if(props.licensesList.length===1){
+                handleActivation()
+            }
+    },[])
+  
+   
     const handleActivation=()=>{
-        setActivate(true);
+
+        props.dispatch(HandelActivateLicense(activeLicense))
+        setActivate(true)
+       
     }
 
 
@@ -21,37 +34,40 @@ const Activate = () => {
     return (
       
             <div className="activate">
+                
                  <h1 className="activate-header">Select one of the following Licenses to activate</h1>
 
                     <div className="Licenses-list">
                     <ul className="pd0">
-            
-                            <li className={activeLicense==1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
-                                <button  className="licenice-Btn" onClick={() => setActiveLicense(1)} >
-                                licenses number : 2356 /
-                                modules : safy, gfshg, dLn
-                                </button>
-                            </li>
 
-                            <li className={activeLicense==2? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
-                                <button  className="licenice-Btn" onClick={() => setActiveLicense(2)} >
-                                licenses number : 2356 /
-                                modules : safy, gfshg, dLn
-                                </button>
-                            </li>
-
-                            <li className={activeLicense==3? "licenice-ItemActive licenice-Item" : " licenice-Item"}>
-                                <button   className="licenice-Btn"onClick={() => setActiveLicense(3)}>
-                                licenses number : 2356 /
-                                modules : safy, gfshg, dLn
-                                 </button>
-                            </li>
-
+                            {props.licensesList.map((license,i)=>(
+                                     
+                                        <li className={activeLicense==i+1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
+                                        <button  className="licenice-Btn" onClick={() => setActiveLicense(i+1)} >
+                                       <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
+                                       <p><span className="bold" >Modules:</span> 
+                                      { license.moduleModels!==null && 
+                                        <ul className="pd0">
+                                        {
+                                        license.moduleModels.map((module)=>  <li className="list"> {module.name}  </li>)}
+                                            
+                                        </ul>
+                                          }
+                                        </p>
+                                     
+                                       </button>
+                                         </li>
+                             ) )}
+                            
+                            
                          </ul>
+                          
                     </div>
                 
-                    <Btn text="ACTIVATE" type="primary" isFullWidth={true} handleClick={handleActivation} />
-                        
+                    <Btn text="ACTIVATE" type="primary" isFullWidth={true} handleClick={handleActivation}  size="large" />
+                    <a className="logout" href="">
+                        Logout
+                    </a>   
                         
                 
             </div>
@@ -61,6 +77,11 @@ const Activate = () => {
     )
 }
 
+function mapStateToProps({LicenseManager}) {
+    
+    return {
+        licensesList : LicenseManager.licenseData.customer.licenses
+    }
+}
 
-
-export default Activate
+export default connect(mapStateToProps)(Activate);

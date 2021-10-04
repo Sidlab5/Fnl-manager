@@ -1,5 +1,5 @@
 .activate{
-    width: 60%;
+    width: 80%;
     display: flex;
     flex-direction: column;
     margin: auto;
@@ -11,25 +11,31 @@
     border: solid #008acd;
     margin: auto;
     margin-top: 0%;
-    margin-bottom: 2%;
-    height: 350px;
+    margin-bottom: 5%;
+    height: 380px;
+   
+    
 }
+
 .activate-header{
     color: #008acd;
+    font-size: 2.2rem;
+    
+    margin-bottom: 25px;
+    margin-top: 25px;
+
+
 }
 
 
-.Activate-btn{
-    width: 100%;
-    background-color: #008acd !important;
-    height: 50px  !important;
-}
+
 .licenice-Item {
     width: 100%;
     font-size: 1.2rem;
     letter-spacing: 1px;
     color: #008acd ;
     list-style-type: none;
+    border-bottom: solid  #e0dddd ;
 
 
 }
@@ -51,3 +57,15 @@
     border-right: 4px solid #008acd;
 
 }
+.logout {
+    
+    color:#008acd;
+    margin-top: 5px;
+  }
+  .bold{
+      font-weight: 800;
+  }
+  .list{
+    list-style-type: none;
+    align-self: center;
+  }

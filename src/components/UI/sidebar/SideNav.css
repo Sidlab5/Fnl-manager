@@ -1,6 +1,6 @@
 .sideNav {    
-    height: 70vh;
-    width: 17.5rem;
+    height: 90vh;
+    width: 14.5rem;
     list-style-type: none;
     padding: 0;
     margin-bottom: 0 !important;
@@ -10,8 +10,8 @@
 
 .sideNavItem {
     width: 100%;
-    font-size: 1.2rem;
-    letter-spacing: 1px;
+    font-size: 1.3rem;
+  
     color: #fff;
 }
 

@@ -3,11 +3,14 @@ import Inpt from '../../UI/input/Inputs';
 import {  Redirect } from "react-router-dom";
 import Btn from '../../UI/button/btn';
 import './Login.css'
+import { HandelSetUser } from '../../../actions/LicenseManager';
+import { useDispatch } from 'react-redux';
 
 const Login = () => {
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [login,setLogin]=useState(false);
+    const dispatch = useDispatch();
 
 
     const handleChangepassword=(e)=>{
@@ -23,11 +26,12 @@ const Login = () => {
       if(email===""||password===""){
           return;
       }
-      else{
+      
+      dispatch(HandelSetUser(email,password))
         setEmail("");
         setPassword("");
         setLogin(true); 
-      }
+      
    
     };
 
@@ -43,16 +47,17 @@ const Login = () => {
           <div className="login-form">
 
                     <div className="input-container"  >
-                    <p className="mr0"> Email</p>
+                   
                     <Inpt handleChange={handleChangeEmail} 
                      value={email}
                      placeholder="Enter your Email address"
-                      size="large" />
+                      size="large"
+                      />
                     </div>
                      
                     
                    <div className="input-container">
-                    <p className="mr0"> Password</p>
+                    
                     <Inpt handleChange={handleChangepassword} 
                       value={password} 
                       placeholder="Enter your Password"
@@ -65,12 +70,12 @@ const Login = () => {
                    
                     <div  className="input-container">
                     <Btn text="Log in" type="primary" handleClick={handleLogin}
-                     disabled={email===""||password===""} isFullWidth={true}/>
+                     disabled={email===""||password===""} isFullWidth={true}  size="large"/>
                         
                     </div>
 
                     <a className="login-form-forgot" href="">
-                        Forgot password
+                        Forgot your password
                     </a>
                     
                </div>

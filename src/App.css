@@ -1,8 +1,10 @@
 @import "~antd/dist/antd.css"; 
 
 * {
+	
 	box-sizing: border-box;
-}
+	letter-spacing: 1px;
+  }
 
 body {
 	font-family: Arial, Helvetica, sans-serif;
@@ -13,3 +15,9 @@ body {
 .pd0{
 	padding: 0px;
 }
+html {
+	font-size: 62.5%;
+	font-family: "Segoe UI";
+	height: 100%;
+  }
+ 

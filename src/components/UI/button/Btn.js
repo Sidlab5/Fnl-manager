@@ -2,7 +2,7 @@ import React from 'react';
 import { Button } from 'antd';
 import  './Btn.css';
 
-const Btn = ({text, icon, handleClick, disabled, type, isFullWidth, isBold}) => {
+const Btn = ({text, icon, handleClick, disabled, type, isFullWidth, isBold,size}) => {
 
 
 
@@ -18,7 +18,8 @@ const Btn = ({text, icon, handleClick, disabled, type, isFullWidth, isBold}) => 
                 ${disabled && "disabled"}`
             } 
             onClick={handleClick} 
-            disabled={disabled}>
+            disabled={disabled}
+            size={size}>
             {icon && icon}
              {text}
            
