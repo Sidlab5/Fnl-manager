@@ -35,39 +35,41 @@ const Activate = (props) => {
       
             <div className="activate">
                 
-                 <h1 className="activate-header">Select one of the following Licenses to activate</h1>
+                 <p className="activate-header">Select one of the following Licenses to activate</p>
 
                     <div className="Licenses-list">
                     <ul className="pd0">
 
-                            {props.licensesList.map((license,i)=>(
-                                     
-                                        <li className={activeLicense==i+1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
-                                        <button  className="licenice-Btn" onClick={() => setActiveLicense(i+1)} >
-                                       <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
-                                       <p><span className="bold" >Modules:</span> 
-                                      { license.moduleModels!==null && 
-                                        <ul className="pd0">
-                                        {
-                                        license.moduleModels.map((module)=>  <li className="list"> {module.name}  </li>)}
-                                            
-                                        </ul>
-                                          }
-                                        </p>
-                                     
-                                       </button>
-                                         </li>
+                        {props.licensesList.map((license,i)=>(
+                            
+                            <li className={activeLicense==i+1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
+                            <button  className="licenice-Btn" onClick={() => setActiveLicense(i+1)} >
+                            <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
+                            <p><span className="bold" >Modules:</span> 
+                            { license.moduleModels!==null && 
+                            <ul className="pd0">
+                            {
+                            license.moduleModels.map((module)=>  <li className="list"> {module.name}  </li>)}
+                                
+                            </ul>
+                                }
+                            </p>
+                            
+                            </button>
+                                </li>
                              ) )}
                             
                             
                          </ul>
                           
                     </div>
-                
-                    <Btn text="ACTIVATE" type="primary" isFullWidth={true} handleClick={handleActivation}  size="large" />
-                    <a className="logout" href="">
+                <div style={{display: 'flex', width: '100%', justifyContent: 'space-between'}}>
+                    <Btn text="ACTIVATE" type="primary" handleClick={handleActivation} />
+                    <Btn text="LOGOUT" type="secondary" handleClick={handleActivation} />
+                </div>
+                    {/* <a className="logout" href="">
                         Logout
-                    </a>   
+                    </a>    */}
                         
                 
             </div>
