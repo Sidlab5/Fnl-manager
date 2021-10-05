@@ -89,7 +89,7 @@ export default function licenseManager(
               ]
             }
           },
-         activeLicenseid: null
+         activeLicenseid: 1
     },
     action) {
 

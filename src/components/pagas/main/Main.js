@@ -37,19 +37,18 @@ const Main = (props) => {
                 <h1 className="header">SIDLAB License is activated</h1>
 
                 <div className="screen">
-                {console.log(props.LicenseManager)}
+                {console.log(props)}
                 <Card  title={<h3 className="span mr0">License information </h3>}>
-                    <p><span className="span">Account:</span> {props.LicenseManager.licenseData.customer.firstName+" "
-                    + props.LicenseManager.licenseData.customer.lastName}</p>
-                    <p><span className="span">Email:</span>{props.LicenseManager.licenseData.customer.email}</p>
-                    <p><span className="span">License type:</span> Perpetual – FNL</p>
+                    <p><span className="span">Account:</span> {props.customer.firstName+" "
+                    + props.customer.lastName}</p>
+                    <p><span className="span">Email:</span>{props.customer.email}</p>
+                    <p><span className="span">License type:</span> Perpetual – {props.ActivatedLicenses.licenseTypeModel.name}</p>
                     <p><span className="span">Modules:</span> 
                     <ul>
                                      
                    
                     {  
-                   props.LicenseManager.licenseData.customer
-                    .licenses[parseInt (props.LicenseManager.activeLicenseid)-1].moduleModels.map((module)=>(
+                   props.ActivatedLicenses.moduleModels.map((module)=>(
                        
                             <li> {module.name}</li>
                     ))}
@@ -58,7 +57,7 @@ const Main = (props) => {
                     </p>
                     <p><span className="span" >License expiration date:</span> N/A</p>
                     <p><span className="span">Maintenance subscription expiration date:</span> 10/12/2020</p>
-                    <p><span className="span">Number of seats:</span> 5</p>
+                    <p><span className="span">Number of seats:</span> {props.ActivatedLicenses.seats}</p>
 
                 
                 </Card> 
@@ -80,7 +79,9 @@ const Main = (props) => {
 function mapStateToProps({LicenseManager}) {
     
     return {
-        LicenseManager
+        customer:LicenseManager.licenseData.customer,
+        ActivatedLicenses:(LicenseManager.licenseData.customer.licenses.
+            filter((License)=>License.id===LicenseManager.activeLicenseid))[0]
     }
 }
 

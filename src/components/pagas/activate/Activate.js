@@ -8,7 +8,7 @@ import  { HandelActivateLicense} from "../../../actions/LicenseManager"
 
 
 const Activate = (props) => {
-    const [activeLicense,setActiveLicense]=useState(1);
+    const [activeLicense,setActiveLicense]=useState(props.licensesList[0].id);
     const [activated,setActivate]=useState(false);
 
     useEffect(()=>{
@@ -40,10 +40,10 @@ const Activate = (props) => {
                     <div className="Licenses-list">
                     <ul className="pd0">
 
-                            {props.licensesList.map((license,i)=>(
+                            {props.licensesList.map((license)=>(
                                      
-                                        <li className={activeLicense==i+1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
-                                        <button  className="licenice-Btn" onClick={() => setActiveLicense(i+1)} >
+                                        <li className={activeLicense==license.id? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
+                                        <button  className="licenice-Btn" onClick={() => setActiveLicense(license.id)} >
                                        <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
                                        <p><span className="bold" >Modules:</span> 
                                       { license.moduleModels!==null && 
