@@ -42,7 +42,7 @@ const Login = () => {
 
   return (
       <div className="login">
-          <h1 className="login-header">Log in to activate FNL manager</h1>
+          <p className="login-header">Log In</p>
 
           <div className="login-form">
 
@@ -51,7 +51,6 @@ const Login = () => {
                     <Inpt handleChange={handleChangeEmail} 
                      value={email}
                      placeholder="Enter your Email address"
-                      size="large"
                       />
                     </div>
                      
@@ -61,7 +60,6 @@ const Login = () => {
                     <Inpt handleChange={handleChangepassword} 
                       value={password} 
                       placeholder="Enter your Password"
-                      size="large" 
                       type="password"/>
                    
                    </div>
@@ -70,7 +68,7 @@ const Login = () => {
                    
                     <div  className="input-container">
                     <Btn text="Log in" type="primary" handleClick={handleLogin}
-                     disabled={email===""||password===""} isFullWidth={true}  size="large"/>
+                     disabled={email===""||password===""} isFullWidth={true}  />
                         
                     </div>
 

@@ -35,10 +35,11 @@ const Activate = (props) => {
       
             <div className="activate">
                 
-                 <h1 className="activate-header">Select one of the following Licenses to activate</h1>
+                 <p className="activate-header">Select one of the following Licenses to activate</p>
 
                     <div className="Licenses-list">
                     <ul className="pd0">
+
 
                             {props.licensesList.map((license)=>(
                                      
@@ -57,17 +58,21 @@ const Activate = (props) => {
                                      
                                        </button>
                                          </li>
+
+
                              ) )}
                             
                             
                          </ul>
                           
                     </div>
-                
-                    <Btn text="ACTIVATE" type="primary" isFullWidth={true} handleClick={handleActivation}  size="large" />
-                    <a className="logout" href="">
+                <div style={{display: 'flex', width: '100%', justifyContent: 'space-between'}}>
+                    <Btn text="ACTIVATE" type="primary" handleClick={handleActivation} />
+                    <Btn text="LOGOUT" type="secondary" handleClick={handleActivation} />
+                </div>
+                    {/* <a className="logout" href="">
                         Logout
-                    </a>   
+                    </a>    */}
                         
                 
             </div>
