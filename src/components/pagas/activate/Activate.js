@@ -40,6 +40,7 @@ const Activate = (props) => {
                     <div className="Licenses-list">
                     <ul className="pd0">
 
+<<<<<<< HEAD
 
                             {props.licensesList.map((license)=>(
                                      
@@ -60,6 +61,24 @@ const Activate = (props) => {
                                          </li>
 
 
+=======
+                        {props.licensesList.map((license,i)=>(
+                            <li className={activeLicense==i+1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
+                            <button  className="licenice-Btn" onClick={() => setActiveLicense(i+1)} >
+                            <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
+                            <p><span className="bold" >Modules:</span> 
+                            { license.moduleModels!==null && 
+                            <ul className="pd0">
+                            {
+                            license.moduleModels.map((module)=>  <li className="list"> {module.name}  </li>)}
+                                
+                            </ul>
+                                }
+                            </p>
+                            
+                            </button>
+                                </li>
+>>>>>>> f7d40dabf3f130bd330380c6900efc6936d28041
                              ) )}
                             
                             
