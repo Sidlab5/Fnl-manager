@@ -37,7 +37,6 @@ const Main = (props) => {
                 <h1 className="header">SIDLAB License is activated</h1>
 
                 <div className="screen">
-                {console.log(props.LicenseManager)}
                 <Card  title={<h3 className="span mr0">License information </h3>}>
                     <p><span className="span">Account:</span> {props.LicenseManager.licenseData.customer.firstName+" "
                     + props.LicenseManager.licenseData.customer.lastName}</p>
@@ -45,8 +44,6 @@ const Main = (props) => {
                     <p><span className="span">License type:</span> Perpetual – FNL</p>
                     <p><span className="span">Modules:</span> 
                     <ul>
-                                     
-                   
                     {  
                    props.LicenseManager.licenseData.customer
                     .licenses[parseInt (props.LicenseManager.activeLicenseid)-1].moduleModels.map((module)=>(
@@ -65,11 +62,8 @@ const Main = (props) => {
                 </div>
 
                 <div className="btns">
-                    <Btn type="primary"  handleClick={handleDeactivate} text="DEACTIVATE" size="large"/>
-        
-                    <Btn type="primary"  handleClick={handleUpdateLicenes} text="UPDATE LICENSE" size="large"/>
-                       
-                    
+                    <Btn type="primary" handleClick={handleDeactivate} text="DEACTIVATE" />
+                    <Btn type="primary" handleClick={handleUpdateLicenes} text="UPDATE LICENSE" />    
                 </div>
             </div>
             

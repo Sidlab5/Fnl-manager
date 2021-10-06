@@ -41,7 +41,6 @@ const Activate = (props) => {
                     <ul className="pd0">
 
                         {props.licensesList.map((license,i)=>(
-                            
                             <li className={activeLicense==i+1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
                             <button  className="licenice-Btn" onClick={() => setActiveLicense(i+1)} >
                             <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
