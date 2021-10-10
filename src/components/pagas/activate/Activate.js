@@ -3,13 +3,14 @@ import {  Redirect } from "react-router-dom";
 import './Activate.css';
 import Btn from '../../UI/button/btn';
 import { connect } from 'react-redux';
-import  { HandelActivateLicense} from "../../../actions/LicenseManager"
+import  { HandelActivateLicense, HandelSetUser} from "../../../actions/LicenseManager"
 
 
 
 const Activate = (props) => {
-    const [activeLicense,setActiveLicense]=useState(props.licensesList[0].id);
+    const [activeLicense,setActiveLicense]=useState(props.licensesList? props.licensesList[0].id:0);
     const [activated,setActivate]=useState(false);
+    const[logedOut,setLogedOut]=useState(false);
 
     useEffect(()=>{
             if(props.licensesList.length===1){
@@ -25,11 +26,20 @@ const Activate = (props) => {
        
     }
 
+    const handleLogOut =()=>{
+        props.dispatch(HandelActivateLicense(null))
+        props.dispatch(HandelSetUser(null,null))
+        setLogedOut(true)
+    }
+
 
     if(activated){
         return <Redirect to='/Main' />
     }
 
+    if(logedOut){
+        return <Redirect to='/' />
+    }
 
     return (
       
@@ -40,7 +50,7 @@ const Activate = (props) => {
                     <div className="Licenses-list">
                     <ul className="pd0">
 
-<<<<<<< HEAD
+
 
                             {props.licensesList.map((license)=>(
                                      
@@ -61,24 +71,8 @@ const Activate = (props) => {
                                          </li>
 
 
-=======
-                        {props.licensesList.map((license,i)=>(
-                            <li className={activeLicense==i+1? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
-                            <button  className="licenice-Btn" onClick={() => setActiveLicense(i+1)} >
-                            <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
-                            <p><span className="bold" >Modules:</span> 
-                            { license.moduleModels!==null && 
-                            <ul className="pd0">
-                            {
-                            license.moduleModels.map((module)=>  <li className="list"> {module.name}  </li>)}
-                                
-                            </ul>
-                                }
-                            </p>
-                            
-                            </button>
-                                </li>
->>>>>>> f7d40dabf3f130bd330380c6900efc6936d28041
+
+                    
                              ) )}
                             
                             
@@ -87,7 +81,7 @@ const Activate = (props) => {
                     </div>
                 <div style={{display: 'flex', width: '100%', justifyContent: 'space-between'}}>
                     <Btn text="ACTIVATE" type="primary" handleClick={handleActivation} />
-                    <Btn text="LOGOUT" type="secondary" handleClick={handleActivation} />
+                    <Btn text="LOGOUT" type="secondary" handleClick={handleLogOut} disabled={true}/>
                 </div>
                     {/* <a className="logout" href="">
                         Logout
@@ -102,9 +96,8 @@ const Activate = (props) => {
 }
 
 function mapStateToProps({LicenseManager}) {
-    
     return {
-        licensesList : LicenseManager.licenseData.customer.licenses
+        licensesList : LicenseManager.userData? LicenseManager.userData.licenses:null
     }
 }
 

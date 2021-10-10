@@ -4,6 +4,8 @@ import {  Redirect } from "react-router-dom";
 import Btn from '../../UI/button/btn';
 import { Card} from 'antd';
 import { connect } from 'react-redux';
+import  { HandelActivateLicense, HandelSetUser} from "../../../actions/LicenseManager"
+
 
 
 
@@ -15,6 +17,8 @@ const Main = (props) => {
     const[updateLicences,setUpdateLicences]=useState(false);
 
     const handleDeactivate=()=>{
+        props.dispatch(HandelActivateLicense(null))
+        props.dispatch(HandelSetUser(null,null))
         setDeactivate(true);
     }
     const handleUpdateLicenes=()=>{
@@ -38,11 +42,12 @@ const Main = (props) => {
 
                 <div className="screen">
                <Card  title={<h3 className="span mr0">License information </h3>}>
-                    <p><span className="span">Account:</span> {props.customer.firstName+" "
-                    + props.customer.lastName}</p>
-                    <p><span className="span">Email:</span>{props.customer.email}</p>
+                    <p><span className="span">Account:</span> {props.user.firstName+" "
+                    + props.user.lastName}</p>
+                    <p><span className="span">Email:</span>{props.user.email}</p>
                     <p><span className="span">License type:</span> Perpetual – {props.ActivatedLicenses.licenseTypeModel.name}</p>
                     <p><span className="span">Modules:</span> 
+                    { props.ActivatedLicenses.moduleModels!==null && 
                     <ul>
                     {  
                    props.ActivatedLicenses.moduleModels.map((module)=>(
@@ -51,6 +56,7 @@ const Main = (props) => {
                     ))}
                         
                     </ul>
+                    }
                     </p>
                     <p><span className="span" >License expiration date:</span> N/A</p>
                     <p><span className="span">Maintenance subscription expiration date:</span> 10/12/2020</p>
@@ -61,8 +67,8 @@ const Main = (props) => {
                 </div>
 
                 <div className="btns">
-                    <Btn type="primary" handleClick={handleDeactivate} text="DEACTIVATE" />
-                    <Btn type="primary" handleClick={handleUpdateLicenes} text="UPDATE LICENSE" />    
+                    <Btn type="primary" handleClick={handleDeactivate} text="DEACTIVATE" disabled={true}/>
+                    <Btn type="primary" handleClick={handleUpdateLicenes} text="UPDATE LICENSE" disabled={true} />    
                 </div>
             </div>
             
@@ -73,9 +79,9 @@ const Main = (props) => {
 function mapStateToProps({LicenseManager}) {
     
     return {
-        customer:LicenseManager.licenseData.customer,
-        ActivatedLicenses:(LicenseManager.licenseData.customer.licenses.
-            filter((License)=>License.id===LicenseManager.activeLicenseid))[0]
+        user:LicenseManager.userData,
+        ActivatedLicenses:LicenseManager.userData?(LicenseManager.userData.licenses.
+            filter((License)=>License.id===LicenseManager.activeLicenseid))[0]:null
     }
 }
 

@@ -13,77 +13,68 @@ export const setUser = (user) => {
 
 export const HandelSetUser=(username,password)=>{
   return(dispatch)=>{
+        if(username===null || password===null){
+          dispatch(setUser( null))
+          return
+        }
    
       dispatch(setUser({
-        access_token: "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ5b3Vzc2lmQHNpZGxhYi5zZSIsImlhdCI6MTYyNTc2OTYwMCwiZXhwIjoxNjI1ODEyODAwfQ.27TqayRlIaYVrIFs8aOVLCWVKWGN11M5TS9uLYzORVo",
-    //    access_token: '',
-        customer: {
-          id: 1,
-          firstName: "Youssif",
-          lastName: "Tawfik",
-          email: "youssif@sidlab.se",
-          password: "$2a$10$yoLXRv8HhGTy/fjYfFJszOdl2iSQdLkiUqrXcxhr0WO.Wz11.vuAi",
-          organization: "Elnady",
-          phoneNumber: "01207309189",
-          city: "Tokyo",
-          country: null,
+        
+          id: 6,
+          firstName: "mayar",
+          lastName: "zakaria",
+          email: "mayar_zakaria@yahoo.com",
+          password: null,
+          organization: "elnady",
+          phoneNumber: "null",
+          city: null,
+          country: {
+              id: 1,
+              name: "Egypt"
+          },
+          roles: null,
           licenses: [
-            {
-              id: 5,
-              macAddress: "zywik72qty16h2",
-              version: "Version 5.1",
-              seats: 0,
-              daysNumber: 360,
-              licenseCategoryModel: {
+              
+              {
+                  id: 18,
+                  macAddress: "null",
+                  version: "null",
+                  seats: 0,
+                  daysNumber: 30,
+                  licenseCategoryModel: null,
+                  licenseTypeModel: {
+                      id: 1,
+                      name: "trial"
+                  },
+                  requestDate: "13/9/2021",
+                  renewDate: "13/10/2021",
+                  studentStartDate: null,
+                  studentEndDate: null,
+                  moduleModels: [ {
+                    id: 1,
+                    name: "ACOUSTICS"
+                  },
+                  {
+                    id: 2,
+                    name: "SAVING"
+                  }]
+              },
+              {
                 id: 1,
-                name: "CUSTOMER"
-              },
-              licenseTypeModel: {
-                id: 2,
-                name: "CPU"
-              },
-              requestDate: null,
-              renewDate: null,
-              studentStartDate: "",
-              studentEndDate: "",
-              moduleModels: [
-                {
-                  id: 1,
-                  name: "ACOUSTICS"
-                },
-                {
-                  id: 2,
-                  name: "SAVING"
-                },
-                {
-                  id: 3,
-                  name: "MATLAB"
-                },
-                {
-                  id: 4,
-                  name: "ACOUSTICS"
-                }
-              ]
-            },
-            {
-                id: 2,
-                macAddress: "zywik72qty16h2",
-                version: "Version 5.1",
+                macAddress: "null",
+                version: "null",
                 seats: 0,
-                daysNumber: 360,
-                licenseCategoryModel: {
-                  id: 1,
-                  name: "CUSTOMER"
-                },
+                daysNumber: 30,
+                licenseCategoryModel: null,
                 licenseTypeModel: {
-                  id: 2,
-                  name: "CPU"
+                    id: 1,
+                    name: "trial"
                 },
-                requestDate: null,
-                renewDate: null,
-                studentStartDate: "",
-                studentEndDate: "",
-                moduleModels: [
+                requestDate: "13/9/2021",
+                renewDate: "13/10/2021",
+                studentStartDate: null,
+                studentEndDate: null,
+                moduleModels:  [
                   {
                     id: 1,
                     name: "ACOUSTICS"
@@ -92,12 +83,16 @@ export const HandelSetUser=(username,password)=>{
                     id: 2,
                     name: "SAVING"
                   },
-                 
-                 
+                  {
+                    id: 3,
+                    name: "MATLAB"
+                  },
+                  {
+                    id: 4,
+                    name: "ACOUSTICS"
+                  }
                 ]
-              }
-          ]
-        }
+            }]
       }))
       /*return  Base.post('sidlab/customers/login',{username, password})
       .then((user)=>dispatch(setUser(user)))*/
