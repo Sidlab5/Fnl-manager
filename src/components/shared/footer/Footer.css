@@ -1,0 +1,22 @@
+.main {
+    background-color: #008acd;
+    justify-content: space-between;
+    width: 100%;
+    display :flex;
+    flex-direction: row;
+    align-items: center;
+    /* border-top: solid #fff ; */
+    position:fixed;
+    height: 50px;
+    /* margin-bottom: 0%;*/
+    bottom: 0px;
+
+}
+
+.footer {
+    margin: 2rem 1rem 2rem 3rem;
+    display: inline;
+    color:  #fff;
+    font-size: 1rem;
+}
+

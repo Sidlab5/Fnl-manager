@@ -1,0 +1,22 @@
+.mainContainer {
+    background-color: #008acd;
+    justify-content: space-between;
+    width: 100%;
+    z-index: 3;
+    padding: 1rem;
+    border-bottom: solid #008acd ;
+    display :flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.title {
+    display: inline;
+    color: #fff;
+    font-size: 1.7rem;
+    margin-bottom: 0 !important;
+}
+.img{
+    height: 4rem;
+}
+
