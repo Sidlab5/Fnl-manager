@@ -3,29 +3,36 @@ import './SideNav.css';
 
 
 
-const SideNav = () => {
+const SideNav = (props) => {
 
- const [activeTap,setActiveTap]=useState(2);
 
 
     return (
         <ul className="sideNav">
             
             <li 
-              className={activeTap==1? "sideNavItemActive sideNavItem" : " sideNavItem" }>
-                <button onClick={() => setActiveTap(1)} className="sideNavBtn"  >
-                  Status
+              className={props.active==1? "sideNavItemActive sideNavItem" : " sideNavItem" }>
+                <button onClick={() => props.handleTabClick(1)} className="sideNavBtn"  >
+                  
+                  Operations
                 </button>
             </li>
            
             <li
-              className= {activeTap==2? "sideNavItemActive sideNavItem" : " sideNavItem" }>
-              <button  onClick={() => setActiveTap(2)}
+              className= {props.active==2? "sideNavItemActive sideNavItem" : " sideNavItem" }>
+              <button  onClick={() => props.handleTabClick(2)}
               className="sideNavBtn"
               >
-               FNL
+               Status
               </button>
             </li> 
+
+            <li 
+              className={props.active==3? "sideNavItemActive sideNavItem" : " sideNavItem" }>
+                <button onClick={() => props.handleTabClick(3)} className="sideNavBtn"  >
+                  License
+                </button>
+            </li>
            
         </ul>
     )

@@ -5,6 +5,7 @@ import Login from './pagas/login/Login';
 import Main from './pagas/main/Main';
 import Activate from './pagas/activate/Activate';
 import { HashRouter as Router, Route } from 'react-router-dom'
+import Operations from './pagas/operations/Operations';
 
 
 const App = () => {
@@ -27,6 +28,7 @@ const App = () => {
 			<Route path='/Main' >
 				<Main />
 			</Route>
+			
 
 			<Footer/>
 

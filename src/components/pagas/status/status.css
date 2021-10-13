@@ -1,0 +1,51 @@
+
+    .tHeader {
+        width: 20%;
+        /* background-color: #fafafa; */
+        background-color: #eee;
+        border-bottom: 1px solid #f0f0f0;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color:rgba(0, 0, 0, 0.65);
+       
+    }
+    
+    .tHeaderCell {
+        padding: 4px;
+         display: 'flex';
+         color: rgba(0, 0, 0, 0.65);
+        height: 55px;
+      
+
+         
+    }
+    .table{
+        margin-top: 30px;  
+         width: 100%;
+        display: flex;
+        flex-direction: row;
+    }
+   .numcell{
+       height: 25px !important;
+       border-bottom: 1px solid #ccc;
+      
+       justify-content: center;
+
+   }
+    .tRow {
+        
+        background-color: #fff;
+        font-size: 1.1rem;
+        font-weight: 100;
+        border-right: 1px solid #ccc;
+        justify-content: center;
+        align-items: center;
+
+    }
+    
+    .tRowCell {
+        padding: 7px;
+        height: 55px;
+
+     }
+    

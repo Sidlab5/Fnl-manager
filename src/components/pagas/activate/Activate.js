@@ -13,7 +13,7 @@ const Activate = (props) => {
     const[logedOut,setLogedOut]=useState(false);
 
     useEffect(()=>{
-            if(props.licensesList.length===1){
+            if(props.licensesList && props.licensesList.length===1){
                 handleActivation()
             }
     },[])
@@ -52,7 +52,7 @@ const Activate = (props) => {
 
 
 
-                            {props.licensesList.map((license)=>(
+                            {props.licensesList ? props.licensesList.map((license)=>(
                                      
                                         <li className={activeLicense==license.id? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
                                         <button  className="licenice-Btn" onClick={() => setActiveLicense(license.id)} >
@@ -73,7 +73,7 @@ const Activate = (props) => {
 
 
                     
-                             ) )}
+                             ) ):null}
                             
                             
                          </ul>

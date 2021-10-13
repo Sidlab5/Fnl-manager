@@ -1,0 +1,63 @@
+
+.operationactivated {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    width: 100%;
+}
+
+
+
+.operationsscreen{
+    border: 1px solid #ddd;
+    width: 100%;
+    height: 280px;
+    display:flex;
+    flex-direction: row;   
+    margin: auto;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    margin-left: 0%;
+}
+.a{
+padding-right:0% !important;
+float:right;
+}
+.card{
+    width: 100%;
+}
+
+
+
+.header{
+    color: #008acd;
+    font-size: 1.8rem;
+    font-weight: 700;
+}
+
+.operationsbtns{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    margin-left: 0px !important;
+    justify-content:space-between;
+
+
+
+}
+.operationsbtnss{
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    margin-left: 0px !important;
+   justify-content: space-around;
+}
+
+.span {
+    font-weight: 600;
+}
+

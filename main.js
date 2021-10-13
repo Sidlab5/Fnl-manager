@@ -1,6 +1,8 @@
 const path = require('path')
 const url = require('url')
 const { app, BrowserWindow } = require('electron')
+var child = require('child_process').exec;
+
 
 let mainWindow
 
@@ -19,7 +21,7 @@ function createMainWindow() {
 		height: 750,
 		maxHeight: 750,
 		maxWidth: 750,
-		minWidth:650,
+		minWidth:720,
 		show: false,
 		icon: `${__dirname}/assets/Icon-02.png`,
 		webPreferences: {
@@ -85,3 +87,12 @@ app.on('activate', () => {
 
 // Stop error
 app.allowRendererProcessReuse = true
+
+/*var executablePath = path.join(__dirname, '../Package_fnl-20211012T090154Z-001/Package_fnl/SIDLAB5_Engine')
+//var executablePath = path.join(__dirname, './build/index.html')
+  child(`"${executablePath}"`, function(err, data) {
+    if(err){
+       console.error('errrrrrrrrrr', err);
+       return;
+    }
+});*/
