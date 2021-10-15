@@ -8,7 +8,6 @@ import  { HandelActivateLicense, HandelSetUser} from "../../../actions/LicenseMa
 import './LicenseInfo.css'
 
 const LicenseInfo = (props) => {
-    console.log(props)
     const[deactivate,setDeactivate]=useState(false);
     const[updateLicences,setUpdateLicences]=useState(false);
 
@@ -48,7 +47,10 @@ const LicenseInfo = (props) => {
                     {  
                    props.ActivatedLicenses.moduleModels.map((module)=>(
                        
-                            <li> {module.name}</li>
+                            <li key={module.id}> {module.name}</li>
+
+
+                            
                     ))}
                         
                     </ul>

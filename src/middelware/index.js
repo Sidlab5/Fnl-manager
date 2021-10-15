@@ -4,7 +4,4 @@ import { applyMiddleware } from 'redux'
 
 const logger = createLogger({});
 
-export default applyMiddleware(
-  thunk,
-  logger
-)
+export default applyMiddleware(thunk,logger)

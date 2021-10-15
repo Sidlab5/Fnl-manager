@@ -8,21 +8,25 @@ import  { HandelActivateLicense, HandelSetUser} from "../../../actions/LicenseMa
 
 
 const Activate = (props) => {
-    const [activeLicense,setActiveLicense]=useState(props.licensesList? props.licensesList[0].id:0);
+    const [activeLicense,setActiveLicense]=useState(props.licensesList? props.licensesList[0].id:null);
     const [activated,setActivate]=useState(false);
     const[logedOut,setLogedOut]=useState(false);
 
+
+    
     useEffect(()=>{
-            if(props.licensesList && props.licensesList.length===1){
+            if(props.licensesList && props.licensesList.length===1)
                 handleActivation()
-            }
-    },[])
+
+            if(props.activeLicenseid && props.activeLicenseid!==null)
+            setActivate(true)
+
+    },[props.activeLicenseid])
   
    
     const handleActivation=()=>{
 
         props.dispatch(HandelActivateLicense(activeLicense))
-        setActivate(true)
        
     }
 
@@ -44,24 +48,26 @@ const Activate = (props) => {
     return (
       
             <div className="activate">
-                
+                {        
+}
                  <p className="activate-header">Select one of the following Licenses to activate</p>
 
-                    <div className="Licenses-list">
+                    <div className={props.licensesList&&props.licensesList.length>2?"Licenses-list overflow":"Licenses-list"}>
                     <ul className="pd0">
 
 
 
-                            {props.licensesList ? props.licensesList.map((license)=>(
-                                     
-                                        <li className={activeLicense==license.id? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
+                            {props.licensesList ? 
+                                            props.licensesList.map((license)=>(
+                                                
+                                        <li  key={license.id}className={activeLicense==license.id? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
                                         <button  className="licenice-Btn" onClick={() => setActiveLicense(license.id)} >
                                        <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
                                        <p><span className="bold" >Modules:</span> 
                                       { license.moduleModels!==null && 
                                         <ul className="pd0">
                                         {
-                                        license.moduleModels.map((module)=>  <li className="list"> {module.name}  </li>)}
+                                        license.moduleModels.map((module)=>  <li  key={module.id} className="list"> {module.name}  </li>)}
                                             
                                         </ul>
                                           }
@@ -75,12 +81,12 @@ const Activate = (props) => {
                     
                              ) ):null}
                             
-                            
+                          
                          </ul>
                           
                     </div>
                 <div style={{display: 'flex', width: '100%', justifyContent: 'space-between'}}>
-                    <Btn text="ACTIVATE" type="primary" handleClick={handleActivation} />
+                    <Btn text="ACTIVATE" type="primary" handleClick={handleActivation} disabled={activeLicense===null} />
                     <Btn text="LOGOUT" type="secondary" handleClick={handleLogOut} disabled={true}/>
                 </div>
                     {/* <a className="logout" href="">
@@ -97,7 +103,8 @@ const Activate = (props) => {
 
 function mapStateToProps({LicenseManager}) {
     return {
-        licensesList : LicenseManager.userData? LicenseManager.userData.licenses:null
+        licensesList : LicenseManager.userData? LicenseManager.userData.licenses:null,
+        activeLicenseid:LicenseManager.activeLicenseid
     }
 }
 

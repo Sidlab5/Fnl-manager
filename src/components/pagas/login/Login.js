@@ -1,16 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState ,useEffect} from 'react';
 import Inpt from '../../UI/input/Inputs';
 import {  Redirect } from "react-router-dom";
 import Btn from '../../UI/button/btn';
 import './Login.css'
 import { HandelSetUser } from '../../../actions/LicenseManager';
 import { useDispatch } from 'react-redux';
-
-const Login = () => {
+import { connect } from 'react-redux';
+const Login = (props) => {
     const [email,setEmail]=useState("");
     const [password,setPassword]=useState("");
     const [login,setLogin]=useState(false);
+    const [wrongedata,setWrongedata]=useState(false)
     const dispatch = useDispatch();
+
+    useEffect( () => {
+
+      if(props.user && props.user!==null)
+        setLogin(true); 
+     
+
+      if(props.user===null){
+        setWrongedata(true);
+
+      }
+      if(email!=="" && password!==""){
+        setWrongedata(false);
+
+      }
+      
+  }, [props.user,email,password])
 
 
     const handleChangepassword=(e)=>{
@@ -21,17 +39,13 @@ const Login = () => {
             setEmail(e.target.value);
             }
 
-    const handleLogin = () => {
 
-      if(email===""||password===""){
-          return;
-      }
+    const handleLogin =   () => {
       
       dispatch(HandelSetUser(email,password))
-        setEmail("");
-        setPassword("");
-        setLogin(true); 
-      
+      setEmail("");
+      setPassword("");
+    
    
     };
 
@@ -65,7 +79,7 @@ const Login = () => {
                    
                    </div>
                        
-                   
+                   <p className={wrongedata?"wrong mr0":"hide"}>Incorrect Email or Password</p>
                    
                     <div  className="input-container">
                     <Btn text="Log in" type="primary" handleClick={handleLogin}
@@ -82,5 +96,9 @@ const Login = () => {
 
   );
 };
-
-export default Login;
+function mapStateToProps({LicenseManager}) {
+  return {
+      user: LicenseManager.userData
+  }
+}
+export default connect(mapStateToProps)(Login);

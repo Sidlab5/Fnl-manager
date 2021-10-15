@@ -41,4 +41,11 @@
   .input-container{
     padding-top: 25px;
   }
-  
+  .hide{
+    display:none;
+  }
+  .wrong{
+    color: red;
+    text-align: center;
+    padding-top: 15px;
+  }
