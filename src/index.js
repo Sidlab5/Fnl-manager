@@ -9,9 +9,6 @@ import { Provider } from 'react-redux'
 
 
 
-
-
-
 let root = document.createElement('div')
 
 root.id = 'root'

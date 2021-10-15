@@ -12,7 +12,7 @@ const SideNav = (props) => {
             
             <li 
               className={props.active==1? "sideNavItemActive sideNavItem" : " sideNavItem" }>
-                <button onClick={() => props.handleTabClick(1)} className="sideNavBtn"  >
+                <button onClick={() => props.handleTabClick(1)} className="disabled sideNavBtn" disabled={true} >
                   
                   Operations
                 </button>
@@ -21,7 +21,7 @@ const SideNav = (props) => {
             <li
               className= {props.active==2? "sideNavItemActive sideNavItem" : " sideNavItem" }>
               <button  onClick={() => props.handleTabClick(2)}
-              className="sideNavBtn"
+              className="disabled sideNavBtn" disabled={true}
               >
                Status
               </button>
