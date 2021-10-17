@@ -18,11 +18,12 @@
     "start": "cross-env NODE_ENV=development webpack-dev-server --hot --host 0.0.0.0 --config=./webpack.dev.config.js --mode development",
     "build": "cross-env NODE_ENV=production webpack --config webpack.build.config.js --mode production",
     "package": "npm run build",
-    "postpackage": "electron-packager ./ --out=./release-builds"
+    "postpackage": "electron-packager . --icon=assets/Sidlab-Icon.ico --arch=x64"
   },
   "dependencies": {
     "antd": "^4.16.13",
     "axios": "^0.22.0",
+    "electron-devtools-installer": "^3.2.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-redux": "^7.2.5",
@@ -44,7 +45,7 @@
     "cross-env": "^7.0.2",
     "css-loader": "^3.5.3",
     "electron": "^9.0.0",
-    "electron-devtools-installer": "^3.0.0",
+    "electron-builder": "^22.13.1",
     "electron-packager": "^14.2.1",
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^4.3.0",

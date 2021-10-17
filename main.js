@@ -6,7 +6,7 @@ var child = require('child_process').exec;
 
 let mainWindow
 
-let isDev = true
+let isDev = false
 
 if (
 	process.env.NODE_ENV !== undefined &&
@@ -88,7 +88,7 @@ app.on('activate', () => {
 // Stop error
 app.allowRendererProcessReuse = true
 
-var executablePath = path.join(__dirname, '../fnl-package/fnl_Engine')
+var executablePath = path.join(__dirname, '../../../control/fnl_Engine')
 //var executablePath = path.join(__dirname, './build/index.html')
   child(`"${executablePath}"`, function(err, data) {
     if(err){
