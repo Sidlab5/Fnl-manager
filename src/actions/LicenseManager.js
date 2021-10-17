@@ -1,6 +1,11 @@
 import {Base} from "../API/Base"
 export const SET_USER = 'SET_USER';
 export const SET_ACTIVE_LICENSE = 'SET_ACTIVE_LICENSE';
+export const SHOW_LOADER = "SHOW_LOADER";
+export const HIDE_LOADER = "HIDE_LOADER";
+
+
+
 
 
 export const setUser = (user) => {
@@ -9,13 +14,27 @@ export const setUser = (user) => {
       user
   }
 }
+export const showLoader = () => (dispatch) => {
+  dispatch({
+    type: SHOW_LOADER,
+  });
+};
+
+export const hideLoader = () => (dispatch) => {
+  dispatch({
+    type: HIDE_LOADER,
+  });
+};
 
 
 export const HandelSetUser=(username,password)=>{
   return  (dispatch)=>{
       
       return  Base.post('/sidlab/customers/login', { username, password })
-         .then(res =>  dispatch(setUser(res.data.data)))
+         .then(res => {dispatch(showLoader())
+          dispatch(setUser(res.data.data))
+          dispatch(hideLoader())
+         } )
          .catch(err => console.log("err:"+err))
         
   }

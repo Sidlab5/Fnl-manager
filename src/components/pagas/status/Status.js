@@ -4,18 +4,10 @@ import { connect } from 'react-redux';
 import "./status.css"
 
 
-
-
-
 const Status = () => {
 
-
-    
    
     return (
-        
-          
-
          
             <div className="operationactivated">
 

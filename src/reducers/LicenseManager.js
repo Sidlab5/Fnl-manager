@@ -1,4 +1,4 @@
-import { SET_ACTIVE_LICENSE, SET_USER } from "../actions/LicenseManager"
+import { SET_ACTIVE_LICENSE, SET_USER , HIDE_LOADER,  SHOW_LOADER} from "../actions/LicenseManager"
 export default function licenseManager(state = {}, action)  {
         switch (action.type) {
            
@@ -13,6 +13,17 @@ export default function licenseManager(state = {}, action)  {
                     ...state,
                     activeLicenseid: action.id
                  }   
+                 case HIDE_LOADER:
+                    return {
+                      ...state,
+                      loading: false,
+                    };
+                  case SHOW_LOADER:
+                    return {
+                      ...state,
+                      loading: true,
+                    };
+          
           
             default:
                 return state

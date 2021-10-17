@@ -1,5 +1,4 @@
 import React, {useState} from 'react';
-import SideNav from '../../UI/sidebar/SideNav';
 import {  Redirect } from "react-router-dom";
 import Btn from '../../UI/button/btn';
 import { Card} from 'antd';
