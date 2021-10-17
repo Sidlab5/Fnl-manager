@@ -88,7 +88,7 @@ app.on('activate', () => {
 // Stop error
 app.allowRendererProcessReuse = true
 
-var executablePath = path.join(__dirname, '../../../control/fnl_Engine')
+var executablePath = path.join(__dirname, '../../../control/SIDLAB-FNL-Engine')
 //var executablePath = path.join(__dirname, './build/index.html')
   child(`"${executablePath}"`, function(err, data) {
     if(err){
@@ -96,3 +96,4 @@ var executablePath = path.join(__dirname, '../../../control/fnl_Engine')
        return;
     }
 });
+

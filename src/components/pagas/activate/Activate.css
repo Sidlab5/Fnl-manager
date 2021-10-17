@@ -21,6 +21,9 @@
     overflow-y: scroll;
 
 }
+.center{
+    text-align: center;
+}
 
 .activate-header {
     color: #008acd;

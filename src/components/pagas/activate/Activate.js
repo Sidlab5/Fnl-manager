@@ -88,8 +88,10 @@ const Activate = (props) => {
                         <Btn text="LOGOUT" type="secondary" handleClick={handleLogOut} disabled={true}/>
                         </div>
 
-                        </div>: <p className="activate-header">you have no Licenses to activate</p>
-
+                        </div>:<div className="center">
+                         <p className="activate-header">you have no Licenses to activate</p>
+                         <Btn text="LOGOUT" type="secondary" handleClick={handleLogOut} disabled={true}/>
+                             </div>
                         }
                     
                     
