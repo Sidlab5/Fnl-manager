@@ -64,7 +64,7 @@ const Activate = (props) => {
                                                     
                                 <li  key={license.id}className={activeLicense==license.id? "licenice-ItemActive licenice-Item" : "licenice-Item" }>
                                         <button  className="licenice-Btn" onClick={() => setActiveLicense(license.id)} >
-                                        <p className="mr0"><span className="bold">  licenses number :</span>  {license.id} </p>
+                                        <p className="mr0"><span className="bold">  Licenses number :</span>  {license.id} </p>
                                         <p><span className="bold" >Modules:</span> 
                                         { license.moduleModels!==null && 
                                             <ul className="pd0">
@@ -84,13 +84,13 @@ const Activate = (props) => {
                             
                         </div>
                         <div style={{display: 'flex', width: '100%', justifyContent: 'space-between'}}>
-                        <Btn text="ACTIVATE" type="primary" handleClick={handleActivation} disabled={activeLicense===null} />
-                        <Btn text="LOGOUT" type="secondary" handleClick={handleLogOut} disabled={true}/>
+                        <Btn text="Activate" type="primary" handleClick={handleActivation} disabled={activeLicense===null} />
+                        <Btn text="Logout" type="secondary" handleClick={handleLogOut} disabled={true}/>
                         </div>
 
                         </div>:<div className="center">
-                         <p className="activate-header">you have no Licenses to activate</p>
-                         <Btn text="LOGOUT" type="secondary" handleClick={handleLogOut} disabled={true}/>
+                         <p className="activate-header">You have no Licenses to activate</p>
+                         <Btn text="Logout" type="secondary" handleClick={handleLogOut} disabled={true}/>
                              </div>
                         }
                     

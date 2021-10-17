@@ -41,7 +41,7 @@ const LicenseInfo = (props) => {
                             <p><span className="span">Account:</span> {props.user.firstName+" "
                             + props.user.lastName}</p>
                             <p><span className="span">Email:</span> {props.user.email}</p>
-                            <p><span className="span">License type:</span> Perpetual – {props.ActivatedLicenses.licenseTypeModel.name}</p>
+                            <p><span className="span">License type:</span> {props.ActivatedLicenses.licenseTypeModel.name}</p>
                             <p><span className="span">Modules:</span> 
                                 { props.ActivatedLicenses.moduleModels!==null && 
                                     <ul>
@@ -57,8 +57,8 @@ const LicenseInfo = (props) => {
                                     </ul>
                                 }
                             </p>
-                            <p><span className="span" >License expiration date:</span> N/A</p>
-                            <p><span className="span">Maintenance subscription expiration date:</span> 10/12/2020</p>
+                            <p><span className="span" >License expiration date:</span> {props.ActivatedLicenses.renewDate}</p>
+                            <p><span className="span">Maintenance subscription expiration date:</span> N/A</p>
                             <p><span className="span">Number of seats:</span> {props.ActivatedLicenses.seats}</p>
 
                         
@@ -66,8 +66,8 @@ const LicenseInfo = (props) => {
                 </div>
 
                 <div className="btns">
-                    <Btn type="primary" handleClick={handleDeactivate} text="DEACTIVATE" disabled={true}/>
-                    <Btn type="primary" handleClick={handleUpdateLicenes} text="UPDATE LICENSE" disabled={true} />    
+                    <Btn type="primary" handleClick={handleDeactivate} text="Deactivate" disabled={true}/>
+                    <Btn type="primary" handleClick={handleUpdateLicenes} text="Upload License" disabled={true} />    
                 </div>
             </div>
             
