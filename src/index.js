@@ -3,9 +3,15 @@ import { render } from 'react-dom'
 import App from './components/App'
 import './App.css'
 import {createStore } from "redux"
-import reduser from "./reducers"
+import reducer from "./reducers"
 import middelware from "./middelware"
 import { Provider } from 'react-redux'
+import { persistStore, persistReducer } from 'redux-persist'
+import storage from 'redux-persist/lib/storage'
+import { PersistGate } from 'redux-persist/integration/react'
+
+
+
 
 
 
@@ -15,16 +21,29 @@ root.id = 'root'
 document.body.appendChild(root)
 
 
+const persistConfig = {
+    key: 'root',
+    storage,
+  }
+
+  const persistedReducer = persistReducer(persistConfig, reducer)
+  let store = createStore(persistedReducer,middelware)
+
+
+  let persistor = persistStore(store)
+
+
  
-const store = createStore(reduser,middelware)
 
 
 render(
     
 <Provider store ={store}>
+<PersistGate loading={null} persistor={persistor}>
 
     <App />
-  
+    </PersistGate>
+
 
 </Provider>
 

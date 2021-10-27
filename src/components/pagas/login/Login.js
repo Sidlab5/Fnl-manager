@@ -7,6 +7,8 @@ import { HandelSetUser } from '../../../actions/LicenseManager';
 import { useDispatch } from 'react-redux';
 import { connect } from 'react-redux';
 import { Spin } from 'antd';
+import { useLocation } from 'react-router-dom';
+
 
 
 const Login = (props) => {
@@ -16,6 +18,13 @@ const Login = (props) => {
     const [login,setLogin]=useState(false);
     const [wrongedata,setWrongedata]=useState(false)
     const dispatch = useDispatch();
+    const location = useLocation();
+
+
+
+    useEffect(()=>{
+      setWrongedata(false);
+    })
 
 
     useEffect( () => {
@@ -23,15 +32,17 @@ const Login = (props) => {
       if(props.user && props.user!==null){
         setWrongedata(false);
         setLogin(true); 
-     
+
       }
-       
+
+      if(location.state&&location.state.old===false)
+      setWrongedata(false)
 
       if(props.user===null){
         setWrongedata(true);
+       
 
       }
-    
       
   }, [props.user,props.loading])
 
@@ -101,6 +112,7 @@ const Login = (props) => {
 };
 
 function mapStateToProps({LicenseManager}) {
+
   return {
       user: LicenseManager.userData,
       loading:LicenseManager.loading

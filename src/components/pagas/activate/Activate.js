@@ -1,17 +1,17 @@
 import React, {useEffect, useState} from 'react';
-import {  Redirect } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import './Activate.css';
 import Btn from '../../UI/button/btn';
 import { connect } from 'react-redux';
-import  { HandelActivateLicense, HandelSetUser} from "../../../actions/LicenseManager"
+import  { HandelActivateLicense, HandelLogOut} from "../../../actions/LicenseManager"
+
 
 
 
 const Activate = (props) => {
 
         const [activeLicense,setActiveLicense]=useState(props.licensesList&&props.licensesList.length!==0? props.licensesList[0].id:null);
-        const [activated,setActivate]=useState(false);
-        const [logedOut,setLogedOut]=useState(false);
+        let history = useHistory();
 
 
 
@@ -20,9 +20,16 @@ const Activate = (props) => {
                     handleActivation()
 
                 if(props.activeLicenseid && props.activeLicenseid!==null)
-                    setActivate(true)
+                    history.push("/Main")
 
         },[props.activeLicenseid])
+
+
+        useEffect(()=>{
+            if(props.user===null) 
+           history.push({pathname:"/", state: {old:false }} );   
+
+        },[props.user])
     
     
         const handleActivation=()=>{
@@ -32,19 +39,11 @@ const Activate = (props) => {
         }
 
         const handleLogOut =()=>{
-            props.dispatch(HandelActivateLicense(null))
-            props.dispatch(HandelSetUser(null,null))
-            setLogedOut(true)
+            props.dispatch(HandelLogOut())
+           
         }
 
-
-        if(activated){
-            return <Redirect to='/Main' />
-        }
-
-        if(logedOut){
-            return <Redirect to='/' />
-        }
+       
 
         return (
         
@@ -85,12 +84,12 @@ const Activate = (props) => {
                         </div>
                         <div style={{display: 'flex', width: '100%', justifyContent: 'space-between'}}>
                         <Btn text="Activate" type="primary" handleClick={handleActivation} disabled={activeLicense===null} />
-                        <Btn text="Logout" type="secondary" handleClick={handleLogOut} disabled={true}/>
+                        <Btn text="Logout" type="secondary" handleClick={handleLogOut} />
                         </div>
 
                         </div>:<div className="center">
                          <p className="activate-header">You have no Licenses to activate</p>
-                         <Btn text="Logout" type="secondary" handleClick={handleLogOut} disabled={true}/>
+                         <Btn text="Logout" type="secondary" handleClick={handleLogOut} />
                              </div>
                         }
                     
@@ -107,7 +106,8 @@ const Activate = (props) => {
 function mapStateToProps({LicenseManager}) {
     return {
         licensesList : LicenseManager.userData? LicenseManager.userData.licenses:null,
-        activeLicenseid:LicenseManager.activeLicenseid
+        activeLicenseid:LicenseManager.activeLicenseid,
+        user: LicenseManager.userData
     }
 }
 

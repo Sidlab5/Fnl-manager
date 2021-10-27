@@ -17,11 +17,12 @@ if (
 
 function createMainWindow() {
 	mainWindow = new BrowserWindow({
-		width: 750,
-		height: 750,
+		width: 720,
+		height: 720,
 		maxHeight: 750,
 		maxWidth: 750,
 		minWidth:720,
+		minHeight:720,
 		show: false,
 		icon: `${__dirname}/assets/Icon-02.png`,
 		webPreferences: {

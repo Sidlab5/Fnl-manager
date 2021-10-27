@@ -1,34 +1,48 @@
-import React, {useState} from 'react';
-import {  Redirect } from "react-router-dom";
+import React, {useEffect} from 'react';
+import { useHistory } from "react-router-dom";
 import Btn from '../../UI/button/btn';
-import { Card} from 'antd';
+import { Card,Modal} from 'antd';
 import { connect } from 'react-redux';
-import  { HandelActivateLicense, HandelSetUser} from "../../../actions/LicenseManager"
+import  { HandelDeactivateLicense, HandelLogOut} from "../../../actions/LicenseManager"
+
 
 import './LicenseInfo.css'
 
 const LicenseInfo = (props) => {
     
-    const[deactivate,setDeactivate]=useState(false);
-    const[updateLicences,setUpdateLicences]=useState(false);
+    let history = useHistory();
+
+    useEffect(()=>{
+
+        if(props.user===null&&props.ActivatedLicenses===null)
+            history.push({pathname:"/", state: {old:false }} );   
+
+    },[props.user,props.ActivatedLicenses])
+
 
     const handleDeactivate=()=>{
-        props.dispatch(HandelActivateLicense(null))
-        props.dispatch(HandelSetUser(null,null))
-        setDeactivate(true);
+        props.dispatch(HandelDeactivateLicense(props.ActivatedLicenses.id))
+        
     }
     const handleUpdateLicenes=()=>{
-        setUpdateLicences(true);
     }
 
+    const confirmModal = () => {
+        Modal.confirm({
+          content: 'Logout will deactivate the current activated license',
+          okText: 'Deactivate and logout',
+          cancelText: 'Cancel',
+          className:"model",
+          onOk() {
+            handleDeactivate()
+          },
+        });
+      }
 
-    if(deactivate){
-        return <Redirect to='/' />
-    }
 
-    if(updateLicences){
-        return <Redirect to='/' />
-    }
+    
+
+    
    
     return (
         <div className="container">
@@ -37,13 +51,14 @@ const LicenseInfo = (props) => {
                 <h1 className="header">SIDLAB License is activated</h1>
 
                 <div className="screen">
+                    {props.ActivatedLicenses && props.user?
                     <Card  title={<h3 className="span mr0">License information </h3>}>
                             <p><span className="span">Account:</span> {props.user.firstName+" "
                             + props.user.lastName}</p>
                             <p><span className="span">Email:</span> {props.user.email}</p>
                             <p><span className="span">License type:</span> {props.ActivatedLicenses.licenseTypeModel.name}</p>
                             <p><span className="span">Modules:</span> 
-                                { props.ActivatedLicenses.moduleModels!==null && 
+                                { props.ActivatedLicenses.moduleModels && 
                                     <ul>
                                 {  
                                         props.ActivatedLicenses.moduleModels.map((module)=>(
@@ -62,15 +77,15 @@ const LicenseInfo = (props) => {
                             <p><span className="span">Number of seats:</span> {props.ActivatedLicenses.seats}</p>
 
                         
-                    </Card> 
+                    </Card> :null}
                 </div>
 
                 <div className="btns">
-                    <Btn type="primary" handleClick={handleDeactivate} text="Deactivate" disabled={true}/>
-                    <Btn type="primary" handleClick={handleUpdateLicenes} text="Upload License" disabled={true} />    
+                    <Btn type="primary" handleClick={confirmModal} text="Deactivate" />
+                    <Btn type="primary" handleClick={handleUpdateLicenes} text="Update License" disabled={true} />    
                 </div>
             </div>
-            
+          
         </div>
        
     )

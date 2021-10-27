@@ -21,6 +21,17 @@
     flex-direction: row;   
 }
 
+.model div div div div button.ant-btn{
+    background-color: #fff !important;
+    color: #008acd !important;
+    border: 1px solid #008acd !important;
+}
+.model div div div div button.ant-btn-primary{
+    background-color: #008acd !important;
+    border: 1px solid #008acd !important;
+    color: #fff !important;
+   
+}
 
 
 .header {
